@@ -1,12 +1,16 @@
-     ALGORITMOS  E  COMPLEXIDADE :
+         ALGORITMOS  E  COMPLEXIDADE : TEMA3 AULA05 
+
+              EXERCICIOS:
 
 Questão 2) Assinale a opção correta. O que faz a função F definida a seguir?
+
  int F (int n) {
  if (n == 0)
  return(0)
  else
  return(n + F(n1))
  }
+
  Alternativas:
  A) Soma os inteiros de n até 0, inclusive.
  B) Soma os inteiros de 0 até n1, inclusive.
@@ -15,7 +19,7 @@ Questão 2) Assinale a opção correta. O que faz a função F definida a seguir
  E) Soma os inteiros de 1 até n1, inclusive.
 
 
-R.
+RESPOSTA : A ESTA CORRETA
 
 
  Questão 1) Analise as sentenças abaixo sobre recursividade.
@@ -32,7 +36,7 @@ R.
  D) 1F, 2F, 3V, 4V.
  E) 1F, 2F, 3F, 4F.
 
- RES. A
+ RESPOSTA. A esta correta
 
 
 
@@ -41,16 +45,16 @@ R.
 
   Qual a condição de parada?
 
- R.A condição de parada ocorre quando n == 0, pois qualquer número elevado a zero é igual a 1. Então, a função retorna 1 para esse caso.
+ Resposta: A condição de parada ocorre quando n == 0, pois qualquer número elevado a zero é igual a 1. Então, a função retorna 1 para esse caso.
 
   Qual a complexidade desta função ?
 
- R. A complexidade da função é O(n), onde n é o expoente. Isso ocorre porque a função faz uma chamada recursiva para cada decremento de n até atingir a condição de parada (n == 0).
+ Resposta:  A complexidade da função é O(n), onde n é o expoente. Isso ocorre porque a função faz uma chamada recursiva para cada decremento de n até atingir a condição de parada (n == 0).
 
 
  2) Implemente uma função recursiva para computar o valor de 2n.
 
-  R. A função para calcular 2^n pode ser implementada da seguinte forma, já que é uma base simples para cálculos de potência.
+  Resposta: A função para calcular 2^n pode ser implementada da seguinte forma, já que é uma base simples para cálculos de potência.
 
 int potencia_de_2(int n) {
     // Condição de parada: 2^0 = 1
@@ -76,7 +80,9 @@ A complexidade dessa função também é O(n), pois ela faz uma chamada recursiv
  return f(b, a % b);
  }
 
- R. Explicação da função:
+EXERCICIOS AULA 3 TEMA 05.
+
+ Resposta: Explicação da função:
 
 Esta função implementa o Algoritmo de Euclides para encontrar o Máximo Divisor Comum (MDC) de dois números a e b.
 Como funciona:
@@ -87,10 +93,16 @@ Como funciona:
 
 O Algoritmo de Euclides funciona iterando (ou recursivamente) e aplicando a divisão sucessiva, até que o resto seja zero. Nesse momento, o valor de a será o MDC de a e b.
 
+
+EXERCICIOS TEMA 2 AULA04
+
 Escrevendo funções a partir de pseudocódigo
+
  1. Reescreva a função abaixo em linguagem C:
 
- R. Descrição
+ Resposta:
+
+. Descrição
 
     A função recebe um vetor A e um inteiro n (tamanho do vetor).
 
@@ -115,7 +127,7 @@ Escrevendo funções a partir de pseudocódigo
 
  R. #include <stdio.h>
 
-void FUNC(int A[], int n) {
+void insertionsort(int A[], int n) {
     int j, ch, i;
 
     // Loop externo: percorre o vetor a partir do segundo elemento (índice 1 em C)
@@ -135,27 +147,51 @@ void FUNC(int A[], int n) {
 }
 
 
- Prof. Ronaldo Candido
- AULA 04
+
+
+SEGUNDO EXERCICIOS AULA 04
+
  2. Acrescente a função main() e teste a entrada do vetor A e n valores.
 
-  R.int main() {
-    int A[] = {5, 2, 9, 1, 5, 6};
-    int n = sizeof(A) / sizeof(A[0]);
 
-    FUNC(A, n);
 
-    // Imprime o vetor ordenado
+  RESPOSTA: 
+       
+          int main() {
+    int n;
+
+    // Leitura do número de elementos do vetor
+    printf("Digite o número de elementos: ");
+    scanf("%d", &n);
+
+    int A[n];
+
+    // Leitura dos elementos do vetor
+    printf("Digite os %d elementos:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &A[i]);
+    }
+
+    // Ordenação do vetor usando o algoritmo de inserção
+    insertionSort(A, n);
+
+    // Exibição do vetor ordenado
+    printf("Vetor ordenado:\n");
     for (int i = 0; i < n; i++) {
         printf("%d ", A[i]);
     }
+    printf("\n");
 
     return 0;
 }
+ 
 
 
 
-  R. xplicação do código em C:
+
+  Resposta:
+
+ Explicação do código em C:
 
     Declaração da função FUNC:
 
@@ -177,14 +213,11 @@ void FUNC(int A[], int n) {
 
         Definimos um vetor A de exemplo, chamamos a função FUNC para ordenar o vetor e, finalmente, imprimimos o vetor ordenado.
 
-Resultado esperado (para o vetor {5, 2, 9, 1, 5, 6}):
 
-A saída do programa será:
-
-
-
+EXERCICIOS TEMA2 AULA 04
 
  Exercícios de Análise assintótica
+
  3. Para cada um dos trechos de código abaixo, analise o tempo estimado de execução no pior
  caso, considerando o modelo RAM. Considere que as variáveis n, m e vetor sejam dados de
  entrada:
@@ -193,6 +226,27 @@ A saída do programa será:
  int soma = 0;
  for (int i=0; i<n; i++)
  soma = soma + i;
+
+RESPOSTA  A;
+
+    Vamos analisar o tempo de execução no pior caso para cada trecho de código considerando o modelo RAM, onde as operações básicas de atribuição, soma e comparação têm tempo constante (O(1)).
+   
+              int soma = 0;
+for (int i = 0; i < n; i++)
+    soma = soma + i;
+
+    A variável soma é inicializada com zero e, em seguida, um loop for é executado de i = 0 até i < n (isto é, o loop executa n vezes).
+
+    Dentro do loop, é feita uma operação de soma (soma = soma + i) a cada iteração.
+
+Cada iteração do loop executa uma operação de soma, que é O(1). Como o loop executa n vezes, o tempo total de execução será proporcional ao número de iterações, ou seja, O(n).
+
+Tempo de execução no pior caso: O(n).
+
+
+
+SEGUNDO TRECHO DE CODIGO:
+
  b)
 
  int soma1 = 0;
@@ -202,9 +256,51 @@ A saída do programa será:
  soma2 = soma2 + i;
  }
 
+  RESPOSTA:
+
+      O trecho inicia com a declaração e inicialização de duas variáveis (soma1 e soma2), que são O(1).
+
+    Em seguida, o loop for é executado de i = 0 até i < n (novamente, o loop executa n vezes).
+
+    Dentro do loop:
+
+        A operação soma1 = soma1 + 1 é executada em cada iteração. Esta é uma operação de soma constante, O(1).
+
+        A operação soma2 = soma2 + i também é executada em cada iteração, e também é uma operação de soma constante, O(1).
+
+Como o loop executa n vezes, e dentro do loop há duas operações O(1) (soma para soma1 e soma para soma2), o tempo total de execução será O(1) para cada operação dentro do loop, e o loop é executado n vezes.
+
+Tempo de execução no pior caso: O(n).
+
+Conclusão:
+
+    a) O tempo de execução é O(n), pois o loop é executado n vezes e há apenas uma operação de soma constante dentro do loop.
+
+    b) O tempo de execução também é O(n), pois o loop é executado n vezes, e dentro de cada iteração do loop há duas operações de soma, mas isso ainda resulta em um tempo de execução linear, ou seja, O(n).
+
+
+FIM EXERCICIOS 3 AULA04 TEMA02
 
 
  Exercícios de Análise assintótica (continuação)
+
+   RESPOSTA:  
+
+  Vamos analisar o tempo de execução no pior caso para os trechos de código apresentados, levando em conta o modelo RAM (onde cada operação básica é considerada O(1)).
+
+    Para cada iteração do loop externo, o loop interno também executa n vezes.
+
+O tempo total de execução será O(n) * O(n) = O(n²).
+
+Tempo de execução no pior caso: O(n²).
+
+    c) O tempo de execução é O(n²), pois temos dois loops aninhados, ambos com n iterações.
+
+    d) O tempo de execução é O(n) no pior caso, pois o primeiro loop é O(n) e o segundo loop (que depende da condição menor < 0) também é O(n).
+
+    e) O tempo de execução é O(n²) no pior caso, pois o terceiro loop (que depende da condição menor > 0) executa n² iterações.
+
+Essas são as complexidades assintóticas para os trechos fornecidos.
  c)
 
  int soma = 0;
@@ -212,6 +308,7 @@ A saída do programa será:
  for (int j=0; j<n; j++){
  soma=soma+1;}
  }
+
  d)
 
  int menor = MAIOR-INTEIRO;
@@ -222,6 +319,7 @@ A saída do programa será:
  for (int i=0; i<n; i++){
  menor = menor * (i+1);
  }
+
  }
 
 
@@ -259,3 +357,70 @@ Questão 2) Seja o seguinte trecho de um algoritmo em Linguagem C. Implementar e
  }
  return sum ;
  }
+
+
+Implementação em C
+
+Aqui está a implementação do algoritmo em C para que possamos testar a função func_soma:
+
+int main() {
+    int n;
+    printf("Digite o valor de n: ");
+    scanf("%d", &n);
+    
+    int resultado = func_soma(n);
+    printf("O valor da soma é: %d\n", resultado);
+    
+    return 0;
+}
+
+Exemplo de execução:
+
+Suponha que n = 3. A função executará:
+
+    O loop externo vai executar 3 vezes.
+
+    O loop interno, por sua vez, vai executar 9 vezes (porque n * n = 3 * 3).
+
+Então, a operação sum++ será executada 3 * 9 = 27 vezes, e o valor final de sum será 27. O programa imprimirá:
+
+Conclusão:
+
+    O tempo de execução do algoritmo é O(n³), pois o número total de operações realizadas é proporcional a n3n3.
+
+
+EXERCICIOS TEMA 2 AULA04
+
+Questão 1) Assinale a alternativa correta acerca da notação O:
+
+A) A definição da notação O segue-se que: Seja g(n), para O(g(n)) = {t(n): existem as constantes
+positivas c e n_0 tais que 0 = t(n) = c.g(n), para todo n = n_0}.
+
+B) Se temos que T(n)=n^2+n, então a complexidade de pior caso de T(n) é igual a n.
+
+C) A definição da notação O segue-se que: Seja g(n), para O((g(n))= {t(n): existem as constantes
+positivas c_1,c_2 e n_0 tais que 0=c_1.g(n)=t(n)=c_2.g(n), para todo n=n_0}.
+
+D) Um algoritmo de ordenação qualquer que tem a complexidade de cada uma das etapas do
+algoritmo n+n^3+n, significa que a complexidade assintótica final desse algoritmo é O(n^2).
+
+E) A notação O sempre irá considerar situações dos algoritmos de melhor caso, haja vista que são
+algoritmos melhores de serem tratados e analisados.
+
+Resposta correta:
+
+Nenhuma das alternativas está correta.
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+   
