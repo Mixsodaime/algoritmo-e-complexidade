@@ -1,0 +1,261 @@
+     ALGORITMOS  E  COMPLEXIDADE :
+
+Questão 2) Assinale a opção correta. O que faz a função F definida a seguir?
+ int F (int n) {
+ if (n == 0)
+ return(0)
+ else
+ return(n + F(n1))
+ }
+ Alternativas:
+ A) Soma os inteiros de n até 0, inclusive.
+ B) Soma os inteiros de 0 até n1, inclusive.
+ C) Não compila, pois não tem caso base.
+ D) Calcula o fatorial de um inteiro n passado como parâmetro.
+ E) Soma os inteiros de 1 até n1, inclusive.
+
+
+R.
+
+
+ Questão 1) Analise as sentenças abaixo sobre recursividade.
+ 1. Um programa recursivo é um programa que chama a si mesmo.
+ 2. Uma função recursiva é definida em termos dela mesma.
+ 3. A recursividade pode ser classificada como direta ou indireta.
+ 4. Para cada chamada de uma função recursiva os parâmetros e as variáveis locais são
+ empilhados na pilha de execução.
+ Assinale as alternativas que contém a sequência verdadeira. Considere V- Verdadeira e F- Falsa.
+
+ A) 1F, 2V, 3V, 4V.
+ B) 1V, 2V, 3V, 4V.
+ C) 1V, 2F, 3V, 4F.
+ D) 1F, 2F, 3V, 4V.
+ E) 1F, 2F, 3F, 4F.
+
+ RES. A
+
+
+
+1) Crie uma função recursiva que calcula a potência de um número:
+  Como escrever a função para o termo n em função do termo anterior ?
+
+  Qual a condição de parada?
+
+ R.A condição de parada ocorre quando n == 0, pois qualquer número elevado a zero é igual a 1. Então, a função retorna 1 para esse caso.
+
+  Qual a complexidade desta função ?
+
+ R. A complexidade da função é O(n), onde n é o expoente. Isso ocorre porque a função faz uma chamada recursiva para cada decremento de n até atingir a condição de parada (n == 0).
+
+
+ 2) Implemente uma função recursiva para computar o valor de 2n.
+
+  R. A função para calcular 2^n pode ser implementada da seguinte forma, já que é uma base simples para cálculos de potência.
+
+int potencia_de_2(int n) {
+    // Condição de parada: 2^0 = 1
+    if (n == 0) {
+        return 1;
+    } else {
+        // Chamada recursiva: 2^n = 2 * 2^(n-1)
+        return 2 * potencia_de_2(n - 1);
+    }
+}
+
+
+ Aqui a condição de parada também é n == 0, e a função retorna 1 nesse caso. Para n > 0, a função retorna 2 * 2^(n-1).
+
+A complexidade dessa função também é O(n), pois ela faz uma chamada recursiva para cada decremento de n.
+
+ 3) O que faz a função a seguir ?
+
+ int f(int a, int b) { // considere a > b
+ if (b == 0)
+ return a;
+ else
+ return f(b, a % b);
+ }
+
+ R. Explicação da função:
+
+Esta função implementa o Algoritmo de Euclides para encontrar o Máximo Divisor Comum (MDC) de dois números a e b.
+Como funciona:
+
+    Quando b == 0, a função retorna a, que é o MDC de a e b, pois o MDC de um número e zero é o próprio número.
+
+    Caso contrário, a função chama a si mesma com os parâmetros b e a % b. O operador % retorna o resto da divisão de a por b, e a recursão continua até que b seja zero.
+
+O Algoritmo de Euclides funciona iterando (ou recursivamente) e aplicando a divisão sucessiva, até que o resto seja zero. Nesse momento, o valor de a será o MDC de a e b.
+
+Escrevendo funções a partir de pseudocódigo
+ 1. Reescreva a função abaixo em linguagem C:
+
+ R. Descrição
+
+    A função recebe um vetor A e um inteiro n (tamanho do vetor).
+
+    O loop externo (de j = 2 até n) percorre o vetor.
+
+    A variável ch guarda o valor atual que está sendo inserido na posição correta.
+
+    O loop interno compara o valor de ch com os elementos à sua esquerda, deslocando os maiores para a direita, até encontrar a posição correta para ch.
+
+    O elemento ch é colocado na posição correta.
+
+ FUNC (A, n)
+ para j ← 2 até n faça
+ ch ← A[j]
+ i ← j − 1
+ enquanto i ≥ 1 e A[i] > ch faça
+ A[i+1]← A[i]
+ i ← i − 1
+ A[i+1]← ch
+ fim enquanto
+ Fim para
+
+ R. #include <stdio.h>
+
+void FUNC(int A[], int n) {
+    int j, ch, i;
+
+    // Loop externo: percorre o vetor a partir do segundo elemento (índice 1 em C)
+    for (j = 1; j < n; j++) {
+        ch = A[j];       // O valor a ser inserido
+        i = j - 1;       // A posição onde comparamos
+
+        // Loop interno: encontra a posição correta de ch
+        while (i >= 0 && A[i] > ch) {
+            A[i + 1] = A[i];  // Desloca o elemento para a direita
+            i = i - 1;         // Move para o próximo elemento à esquerda
+        }
+
+        // Coloca ch na posição correta
+        A[i + 1] = ch;
+    }
+}
+
+
+ Prof. Ronaldo Candido
+ AULA 04
+ 2. Acrescente a função main() e teste a entrada do vetor A e n valores.
+
+  R.int main() {
+    int A[] = {5, 2, 9, 1, 5, 6};
+    int n = sizeof(A) / sizeof(A[0]);
+
+    FUNC(A, n);
+
+    // Imprime o vetor ordenado
+    for (int i = 0; i < n; i++) {
+        printf("%d ", A[i]);
+    }
+
+    return 0;
+}
+
+
+
+  R. xplicação do código em C:
+
+    Declaração da função FUNC:
+
+        A função recebe um vetor A e o tamanho do vetor n.
+
+    Loop externo (for):
+
+        A partir do segundo elemento (j = 1), o algoritmo insere o elemento A[j] na posição correta dos elementos à sua esquerda (do índice 0 até j-1).
+
+    Loop interno (while):
+
+        Esse loop percorre os elementos à esquerda de A[j] e, enquanto o elemento à esquerda for maior que o valor de ch, ele desloca esse elemento para a direita.
+
+    Inserção do valor ch:
+
+        Quando a posição correta de ch é encontrada, ele é inserido no vetor.
+
+    Função main:
+
+        Definimos um vetor A de exemplo, chamamos a função FUNC para ordenar o vetor e, finalmente, imprimimos o vetor ordenado.
+
+Resultado esperado (para o vetor {5, 2, 9, 1, 5, 6}):
+
+A saída do programa será:
+
+
+
+
+ Exercícios de Análise assintótica
+ 3. Para cada um dos trechos de código abaixo, analise o tempo estimado de execução no pior
+ caso, considerando o modelo RAM. Considere que as variáveis n, m e vetor sejam dados de
+ entrada:
+ a)
+
+ int soma = 0;
+ for (int i=0; i<n; i++)
+ soma = soma + i;
+ b)
+
+ int soma1 = 0;
+ int soma2 = 0;
+ for (int i=0; i<n; i++){
+ soma1 = soma1 + 1;
+ soma2 = soma2 + i;
+ }
+
+
+
+ Exercícios de Análise assintótica (continuação)
+ c)
+
+ int soma = 0;
+ for (int i=0; i<n; i++){
+ for (int j=0; j<n; j++){
+ soma=soma+1;}
+ }
+ d)
+
+ int menor = MAIOR-INTEIRO;
+ for (int i=0; i<n; i++){
+ if (vetor[i] < menor)
+ menor = vetor[i]; }
+ if (menor < 0){
+ for (int i=0; i<n; i++){
+ menor = menor * (i+1);
+ }
+ }
+
+
+
+
+ Exercícios de Análise assintótica (continuação)
+ e)
+
+ int menor = MAIOR-INTEIRO;
+ for (int i=0; i<n; i++){
+ if (vetor[i] < menor)
+ menor = vetor[i];
+ }
+ if (menor < 0){
+ for (int i=0; i<n; i++){
+ menor = menor * (i+1);
+ }
+ }else if (menor > 0){
+ for (int i=0; i<n*n; i++)
+ printf(“%d\n”, menor);
+ } else {
+ printf(“%d\n”, menor);
+ }
+
+
+Questão 2) Seja o seguinte trecho de um algoritmo em Linguagem C. Implementar e fazer a
+ análise da quantidade de passos executados pelas suas estruturas de repetição:
+
+ int func_soma(int n){
+ int i,j,sum = 0 ;
+ for (i=0; i<n; i++) {
+ for (j=0; j<n*n ; j++) {
+ sum++ ;
+ }
+ }
+ return sum ;
+ }
